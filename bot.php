@@ -31,6 +31,17 @@ if (!is_null($events['events'])) {
 			// Get text sent
 			//$text = $event['message']['text'];
 			$keyword = $event['message']['text'];
+				if ((preg_match('/vd/',$keyword)) || (preg_match('/Vd/',$keyword))   || (preg_match('/voody/',$keyword)) || (preg_match('/Voody/',$keyword))){
+				//is ok to talk to voody
+				}else{
+				//echo "not";
+				exit();
+				}
+			
+			
+			
+			
+			
 			$keyword = str_replace(' ', '', trim($keyword));
 			//http://110.164.57.36/voody/reply.php?keyword=voody
 			$url = "http://110.164.57.36/voody/reply.php?keyword=".$keyword;
