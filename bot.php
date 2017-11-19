@@ -1,6 +1,23 @@
 <?php
 $access_token = 'DnkJV7DuTpajvt+bbha+hBzZOcVT3TGYrZY8qfwOCgBfkN4t+u5Y4h31CfC9MBVs2tA+nHn23CrizHiTHZsA+rjXKfVQ/CjzOnwzfJBM2yYpTa+CmrQP53tEEZmEMwrHPxzlaslZ+GABub8tE+EhUgdB04t89/1O/w1cDnyilFU=';
 
+function getHtml($url, $post = null) {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    if(!empty($post)) {
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+    } 
+    $result = curl_exec($ch);
+    curl_close($ch);
+    return $result;
+}
+
+
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -17,7 +34,7 @@ if (!is_null($events['events'])) {
 			//http://110.164.57.36/voody/reply.php?keyword=voody
 			$url = "http://110.164.57.36/voody/reply.php?keyword=voody max";
 			//echo 
-			$msgreply = $url; 
+			$msgreply = getHtml($url); 
 			//$text = "i will learn from u";
 			// Get replyToken
 			
