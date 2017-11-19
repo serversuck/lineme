@@ -31,8 +31,9 @@ if (!is_null($events['events'])) {
 			// Get text sent
 			//$text = $event['message']['text'];
 			$keyword = $event['message']['text'];
+			$keyword = str_replace(' ', '', trim($keyword));
 			//http://110.164.57.36/voody/reply.php?keyword=voody
-			$url = "http://110.164.57.36/voody/reply.php?keyword=vd เลว";
+			$url = "http://110.164.57.36/voody/reply.php?keyword=".$keyword;
 			//echo 
 			$msgreply = getHtml($url); 
 			//$text = "i will learn from u";
