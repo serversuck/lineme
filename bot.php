@@ -13,14 +13,21 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			//$text = $event['message']['text'];
-			$text = "i will learn from u";
+			$keyword = $event['message']['text'];
+			//http://110.164.57.36/voody/reply.php?keyword=voody
+			$url = "http://110.164.57.36/voody/reply.php?keyword=".$keyword;
+			//echo 
+			$msgreply = get_remote_data(url); 
+			//$text = "i will learn from u";
 			// Get replyToken
+			
+			
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $text
+				'text' => $msgreply
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
