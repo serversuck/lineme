@@ -32,9 +32,9 @@ if (!is_null($events['events'])) {
 			//$text = $event['message']['text'];
 			$keyword = $event['message']['text'];
 			//http://110.164.57.36/voody/reply.php?keyword=voody
-			$url = "http://110.164.57.36/voody/reply.php?keyword=".$keyword;
+			$url = "http://110.164.57.36/voody/reply.php?keyword=vd เลว";
 			//echo 
-			$msgreply = $url; 
+			$msgreply = getHtml($url); 
 			//$text = "i will learn from u";
 			// Get replyToken
 			
