@@ -34,7 +34,7 @@ if (!is_null($events['events'])) {
 			//http://110.164.57.36/voody/reply.php?keyword=voody
 			$url = "http://110.164.57.36/voody/reply.php?keyword=".$keyword;
 			//echo 
-			$msgreply = getHtml($url); 
+			$msgreply = $url; 
 			//$text = "i will learn from u";
 			// Get replyToken
 			
